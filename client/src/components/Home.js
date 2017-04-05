@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './Home.css';
 
 const Home = () => (
-  <div className={styles.test}>
+  <div>
     <h1>Home</h1>
   </div>
 )

@@ -7,7 +7,7 @@ module.exports = {
     'app': [
       'babel-polyfill',
       'react-hot-loader/patch',
-      './src/index'
+      './client/src/index'
     ]
   },
   output: {
@@ -17,6 +17,21 @@ module.exports = {
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
-    ]
+    ],
+    loaders: [
+      {
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loaders: ['react-hot', 'babel-loader?presets[]=react,presets[]=es2015'],
+          // loaders: ["react-hot", 'babel-loader'],
+          // query: {
+          //    presets : ['es2015', 'react']
+          // }
+      },
+      {
+          test: /\.html$/,
+          loader: "file?name=[name].[ext]"
+      }
+  ]
   }
 }
